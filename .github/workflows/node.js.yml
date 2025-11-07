@@ -18,7 +18,10 @@ jobs:
         node-version: [18.x, 20.x, 22.x]
 
     steps:
+      # Checkout the code without initializing submodules
       - uses: actions/checkout@v4
+        with:
+          submodules: false
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
@@ -26,16 +29,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
           cache-dependency-path: package-lock.json
-  # cache correct path
 
       - name: Install dependencies
-        working-directory: JS-Fundamentals
         run: npm ci
 
       - name: Build project
-        working-directory: JS-Fundamentals
         run: npm run build --if-present
 
       - name: Run tests
-        working-directory: JS-Fundamentals
         run: npm test
+
