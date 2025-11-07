@@ -1,0 +1,19 @@
+HEAD
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        working-directory: JS-Fundamentals   # <--- path where package.json lives
+        run: npm install
+
+      - name: Run tests
+        working-directory: JS-Fundamentals
+        run: npm test
