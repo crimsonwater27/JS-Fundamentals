@@ -1,19 +1,13 @@
-HEAD
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+{
+  "name": "js-fundamentals",
+  "version": "1.0.0",
+  "description": "Collection of JavaScript fundamentals scripts",
+  "main": "0-javascript_is_amazing.js",
+  "scripts": {
+    "test": "node 0-javascript_is_amazing.js && node 1-multi_languages.js && node 2-arguments.js && node 3-value_argument.js && node 4-concat.js && node 5-to_integer.js && node 6-multi_languages_loop.js && node 7-multi_c.js && node 8-square.js && node 9-add.js && node 10-factorial.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
 
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Install dependencies
-        working-directory: JS-Fundamentals   # <--- path where package.json lives
-        run: npm install
-
-      - name: Run tests
-        working-directory: JS-Fundamentals
-        run: npm test
