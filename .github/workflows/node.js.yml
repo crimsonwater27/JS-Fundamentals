@@ -25,7 +25,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-          cache-dependency-path: JS-Fundamentals/package-lock.json  # cache correct path
+          cache-dependency-path: package-lock.json
+  # cache correct path
 
       - name: Install dependencies
         working-directory: JS-Fundamentals
