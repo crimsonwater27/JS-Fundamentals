@@ -1,39 +1,12 @@
-name: Node.js CI
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          submodules: false
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-
-      - name: Install dependencies
-        working-directory: JS-Fundamentals
-        run: npm ci
-
-      - name: Build project
-        working-directory: JS-Fundamentals
-        run: npm run build --if-present
-
-      - name: Run tests
-        working-directory: JS-Fundamentals
-        run: npm test
+{
+  "name": "js-fundamentals",
+  "version": "1.0.0",
+  "description": "Collection of JavaScript fundamentals scripts",
+  "main": "0-javascript_is_amazing.js",
+  "scripts": {
+    "test": "node 0-javascript_is_amazing.js && node 1-multi_languages.js && node 2-arguments.js && node 3-value_argument.js && node 4-concat.js && node 5-to_integer.js && node 6-multi_languages_loop.js && node 7-multi_c.js && node 8-square.js && node 9-add.js && node 10-factorial.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
